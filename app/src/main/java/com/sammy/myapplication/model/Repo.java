@@ -1,6 +1,7 @@
 package com.sammy.myapplication.model;
 
 import com.google.auto.value.AutoValue;
+import com.sammy.poweradapter.item.RecyclerItem;
 import com.squareup.moshi.Json;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
@@ -8,7 +9,7 @@ import com.squareup.moshi.Moshi;
 import org.threeten.bp.ZonedDateTime;
 
 @AutoValue
-public abstract class Repo {
+public abstract class Repo implements RecyclerItem {
 
     public abstract long id();
 
@@ -33,6 +34,16 @@ public abstract class Repo {
     @Json(name = "updated_at")
     public abstract ZonedDateTime updatedDate();
 
+
+    @Override
+    public long getId() {
+        return id();
+    }
+
+    @Override
+    public String renderKey() {
+        return "Repo";
+    }
     public static JsonAdapter<Repo> jsonAdapter(Moshi moshi) {
         return new AutoValue_Repo.MoshiJsonAdapter(moshi);
     }

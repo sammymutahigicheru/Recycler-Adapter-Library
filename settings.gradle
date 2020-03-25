@@ -1,2 +1,3 @@
 rootProject.name='Recycler Adapter Library'
 include ':app'
+include ':poweradapter'

@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.sammy.myapplication.R;
 import com.sammy.myapplication.base.BaseController;
+import com.sammy.poweradapter.adapter.RecyclerAdapter;
+import com.sammy.poweradapter.adapter.RecyclerDataSource;
 
 import javax.inject.Inject;
 
@@ -20,6 +22,8 @@ public class TrendingReposController extends BaseController {
 
     @Inject TrendingReposPresenter presenter;
     @Inject TrendingReposViewModel viewModel;
+    @Inject
+    RecyclerDataSource dataSource;
 
     @BindView(R.id.repo_list)
     RecyclerView repoList;
@@ -31,7 +35,7 @@ public class TrendingReposController extends BaseController {
     @Override
     protected void onViewBound(View view) {
         repoList.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        repoList.setAdapter(new RepoAdapter(presenter));
+        repoList.setAdapter(new RecyclerAdapter(dataSource));
     }
 
     @Override
@@ -44,9 +48,6 @@ public class TrendingReposController extends BaseController {
                     repoList.setVisibility(loading ? View.GONE : View.VISIBLE);
                     errorText.setVisibility(loading ? View.GONE : errorText.getVisibility());
                 }),
-                viewModel.repos()
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(((RepoAdapter)repoList.getAdapter())::setData),
                 viewModel.error()
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(errorRes -> {

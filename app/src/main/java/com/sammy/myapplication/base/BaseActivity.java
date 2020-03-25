@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.ViewGroup;
 
 import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,8 +12,10 @@ import com.bluelinelabs.conductor.Conductor;
 import com.bluelinelabs.conductor.Controller;
 import com.bluelinelabs.conductor.ControllerChangeHandler;
 import com.bluelinelabs.conductor.Router;
+import com.sammy.myapplication.R;
 import com.sammy.myapplication.di.Injector;
 import com.sammy.myapplication.di.ScreenInjector;
+import com.sammy.myapplication.ui.ScreenNavigator;
 
 import java.util.UUID;
 
@@ -24,7 +27,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Inject
     ScreenInjector screenInjector;
-    @Inject ScreenNavigator screenNavigator;
+    @Inject
+    ScreenNavigator screenNavigator;
 
     private String instanceId;
     private Router router;

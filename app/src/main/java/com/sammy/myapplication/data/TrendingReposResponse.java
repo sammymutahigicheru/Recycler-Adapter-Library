@@ -8,8 +8,6 @@ import com.squareup.moshi.Moshi;
 
 import java.util.List;
 
-import io.neverstoplearning.advancedandroid.model.Repo;
-
 @AutoValue
 public abstract class TrendingReposResponse {
 

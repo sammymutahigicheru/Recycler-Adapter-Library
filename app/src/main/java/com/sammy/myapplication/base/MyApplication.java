@@ -2,6 +2,7 @@ package com.sammy.myapplication.base;
 
 import android.app.Application;
 
+import com.sammy.myapplication.BuildConfig;
 import com.sammy.myapplication.di.ActivityInjector;
 
 import javax.inject.Inject;

@@ -2,7 +2,8 @@ package com.sammy.myapplication.base;
 
 import android.app.Activity;
 
-import com.sammy.myapplication.MainActivity;
+import com.sammy.myapplication.home.MainActivity;
+import com.sammy.myapplication.home.MainActivityComponent;
 
 import dagger.Binds;
 import dagger.Module;
